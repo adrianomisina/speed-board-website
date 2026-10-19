@@ -1,6 +1,7 @@
 import React from 'react'
 
 export type ExperienceLevel = 'Iniciante' | 'Intermediário' | 'Avançado'
+export type BoardCategory = 'Shortboard - Performance' | 'Evolution' | 'Fun' | 'Fish' | 'Longboards'
 export interface BoardDimensions {
   length: string
   width: string
@@ -12,6 +13,7 @@ export interface Board {
   id: string
   name: string
   type: string
+  category: BoardCategory
   suitableExperience: ExperienceLevel[]
   description: string
   image: string
@@ -82,6 +84,7 @@ export const boardsData: Board[] = [
     id: 'spd-001',
     name: 'Speed Carbon',
     type: 'Shortboard',
+    category: 'Shortboard - Performance',
     suitableExperience: ['Intermediário', 'Avançado'],
     description:
       'Design minimalista em preto sólido de fibra de carbono. Leveza e velocidade extrema.',
@@ -98,6 +101,7 @@ export const boardsData: Board[] = [
     id: 'spd-002',
     name: 'Speed Sunset Fade',
     type: 'Evolution, Shortboard',
+    category: 'Evolution',
     suitableExperience: ['Intermediário', 'Avançado'],
     description:
       'Um visual marcante com degradê de rosa, laranja e amarelo com bordas pretas e fundo de carbono. Ideal para quem busca estilo e performance.',
@@ -114,6 +118,7 @@ export const boardsData: Board[] = [
     id: 'spd-003',
     name: 'Speed Wood Longboard',
     type: 'Longboard',
+    category: 'Longboards',
     suitableExperience: ['Iniciante', 'Intermediário', 'Avançado'],
     description:
       'Clássica prancha estilo longboard com textura central de madeira e bordas brancas. Ideal para remadas longas e surf relaxado.',
@@ -130,6 +135,7 @@ export const boardsData: Board[] = [
     id: 'spd-004',
     name: 'Speed Carbon Longboard',
     type: 'Longboard',
+    category: 'Longboards',
     suitableExperience: ['Iniciante', 'Intermediário', 'Avançado'],
     description:
       'Speed Carbon Longboard com design minimalista em preto sólido de fibra de carbono. Leveza e velocidade extrema para longboards.',
@@ -146,6 +152,7 @@ export const boardsData: Board[] = [
     id: 'spd-005',
     name: 'Speed Write Performance',
     type: 'Evolution, Shortboard',
+    category: 'Evolution',
     suitableExperience: ['Intermediário', 'Avançado'],
     description:
       'Speed Write Performance com design minimalista e clássico. Leveza e velocidade extrema para pranchas de performance.',
@@ -162,6 +169,7 @@ export const boardsData: Board[] = [
     id: 'spd-006',
     name: 'Speed Performance Blue',
     type: 'Shortboard',
+    category: 'Shortboard - Performance',
     suitableExperience: ['Intermediário', 'Avançado'],
     description:
       'Prancha de performance com design moderno na tonalidade azul com bordas laranja. Ideal para alta velocidade.',
@@ -178,6 +186,7 @@ export const boardsData: Board[] = [
     id: 'spd-007',
     name: 'Speed Yellow Fish',
     type: 'Fish / Hybrid',
+    category: 'Fish',
     suitableExperience: ['Intermediário', 'Avançado'],
     description:
       'Fundo e deck em amarelo vibrante. Design de fish clássico para surf solto e divertido.',
@@ -194,6 +203,7 @@ export const boardsData: Board[] = [
     id: 'spd-008',
     name: 'Speed Write Fish',
     type: 'Shortboard',
+    category: 'Fish',
     suitableExperience: ['Intermediário', 'Avançado'],
     description:
       'Speed Write Fish com design minimalista e clássico. Leveza e velocidade extrema para pranchas de performance.',
@@ -210,6 +220,7 @@ export const boardsData: Board[] = [
     id: 'spd-009',
     name: 'Speed EVH Eruption',
     type: 'Shortboard',
+    category: 'Shortboard - Performance',
     suitableExperience: ['Avançado'],
     description:
       'Design icônico inspirado na guitarra do Eddie Van Halen. Pura atitude e performance radical.',
@@ -226,6 +237,7 @@ export const boardsData: Board[] = [
     id: 'spd-010',
     name: 'Speed Raibow Gradient',
     type: 'Shortboard',
+    category: 'Shortboard - Performance',
     suitableExperience: ['Intermediário', 'Avançado'],
     description:
       'Desino vibrante com gradiente de arco-íris. Para surfistas que buscam estilo e performance.',
@@ -242,6 +254,7 @@ export const boardsData: Board[] = [
     id: 'spd-011',
     name: 'Speed Pink Swallow',
     type: 'Shortboard / Swallow Tail',
+    category: 'Fish',
     suitableExperience: ['Intermediário', 'Avançado'],
     description:
       'Prancha rosa com design de swallow tail. Ideal para surfistas que buscam estilo e performance em ondas médias a grandes.',
@@ -258,6 +271,7 @@ export const boardsData: Board[] = [
     id: 'spd-012',
     name: 'Speed Pink and Blue Gradient',
     type: 'Shortboard',
+    category: 'Fun',
     suitableExperience: ['Intermediário', 'Avançado'],
     description: 'Prancha performance ideal para surfistas que buscam estilo e desempenho.',
     image: SpeedPinkBlueGradientImg,
@@ -273,6 +287,7 @@ export const boardsData: Board[] = [
     id: 'spd-013',
     name: 'Speed Write Blue Border',
     type: 'Shortboard',
+    category: 'Shortboard - Performance',
     suitableExperience: ['Intermediário', 'Avançado'],
     description:
       'Prancha performance com bordas azuis vibrantes. Ideal para surfistas que buscam estilo e desempenho.',
@@ -289,6 +304,7 @@ export const boardsData: Board[] = [
     id: 'spd-014',
     name: 'Speed Flash Fish',
     type: 'Fish / Hybrid',
+    category: 'Fish',
     suitableExperience: ['Intermediário', 'Avançado'],
     description:
       'Fish versátil para surfistas intermediários e avançados, especialmente em ondas pequenas. A distribuição de volume favorece velocidade, manobras mais fáceis e conforto na remada.',

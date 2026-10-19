@@ -33,8 +33,8 @@ export function Hero() {
             style={{ backgroundImage: `url(${heroImages[activeSlide]})` }}
           />
         </AnimatePresence>
-        <span className="absolute inset-0 bg-black/70"></span>
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20"></div>
+        <span className="absolute inset-0 bg-black/50"></span>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/10"></div>
       </div>
 
       <div className="container relative mx-auto px-4">

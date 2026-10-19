@@ -20,7 +20,10 @@ export function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://www.instagram.com/speed_surf_board_brazil?srtk=MXNsMzU5OXluZDIybA%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram de Sidnei Oliveira"
                 className="w-10 h-10 bg-zinc-900 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-emerald-500 transition-colors"
               >
                 <Instagram size={20} />
