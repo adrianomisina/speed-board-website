@@ -1,8 +1,6 @@
 import React from 'react'
 
 export type ExperienceLevel = 'Iniciante' | 'Intermediário' | 'Avançado'
-export type WeightClass = 'Leve (< 70kg)' | 'Médio (70 - 85kg)' | 'Pesado (> 85kg)'
-
 export interface BoardDimensions {
   length: string
   width: string
@@ -15,7 +13,6 @@ export interface Board {
   name: string
   type: string
   suitableExperience: ExperienceLevel[]
-  suitableWeight: WeightClass[]
   description: string
   image: string
   backImage?: string
@@ -76,13 +73,16 @@ import SpeedPinkBlueGradientBackImg from './assets/images/speed_pink_and_blue_fu
 import SpeedWriteBlueBorderImg from './assets/images/speed_write_blue_border_frente.png'
 import SpeedWriteBlueBorderBackImg from './assets/images/speed_write_blue_border_fundo.png'
 
+//Speed Flash Fish
+import SpeedFlashFishImg from './assets/images/fish-flash-frente.png'
+import SpeedFlashFishBackImg from './assets/images/fish-flash-fundo.png'
+
 export const boardsData: Board[] = [
   {
     id: 'spd-001',
     name: 'Speed Carbon',
     type: 'Shortboard',
     suitableExperience: ['Intermediário', 'Avançado'],
-    suitableWeight: ['Leve (< 70kg)', 'Médio (70 - 85kg)'],
     description:
       'Design minimalista em preto sólido de fibra de carbono. Leveza e velocidade extrema.',
     image: carbonImg,
@@ -99,7 +99,6 @@ export const boardsData: Board[] = [
     name: 'Speed Sunset Fade',
     type: 'Evolution, Shortboard',
     suitableExperience: ['Intermediário', 'Avançado'],
-    suitableWeight: ['Leve (< 70kg)', 'Médio (70 - 85kg)', 'Pesado (> 85kg)'],
     description:
       'Um visual marcante com degradê de rosa, laranja e amarelo com bordas pretas e fundo de carbono. Ideal para quem busca estilo e performance.',
     image: sunsetImg,
@@ -116,7 +115,6 @@ export const boardsData: Board[] = [
     name: 'Speed Wood Longboard',
     type: 'Longboard',
     suitableExperience: ['Iniciante', 'Intermediário', 'Avançado'],
-    suitableWeight: ['Leve (< 70kg)', 'Médio (70 - 85kg)', 'Pesado (> 85kg)'],
     description:
       'Clássica prancha estilo longboard com textura central de madeira e bordas brancas. Ideal para remadas longas e surf relaxado.',
     image: woodImg,
@@ -133,7 +131,6 @@ export const boardsData: Board[] = [
     name: 'Speed Carbon Longboard',
     type: 'Longboard',
     suitableExperience: ['Iniciante', 'Intermediário', 'Avançado'],
-    suitableWeight: ['Leve (< 70kg)', 'Médio (70 - 85kg)', 'Pesado (> 85kg)'],
     description:
       'Speed Carbon Longboard com design minimalista em preto sólido de fibra de carbono. Leveza e velocidade extrema para longboards.',
     image: SpeedCarbonLongboardImg,
@@ -150,7 +147,6 @@ export const boardsData: Board[] = [
     name: 'Speed Write Performance',
     type: 'Evolution, Shortboard',
     suitableExperience: ['Intermediário', 'Avançado'],
-    suitableWeight: ['Médio (70 - 85kg)', 'Pesado (> 85kg)'],
     description:
       'Speed Write Performance com design minimalista e clássico. Leveza e velocidade extrema para pranchas de performance.',
     image: SpeedWritePerformanceImg,
@@ -167,7 +163,6 @@ export const boardsData: Board[] = [
     name: 'Speed Performance Blue',
     type: 'Shortboard',
     suitableExperience: ['Intermediário', 'Avançado'],
-    suitableWeight: ['Leve (< 70kg)', 'Médio (70 - 85kg)'],
     description:
       'Prancha de performance com design moderno na tonalidade azul com bordas laranja. Ideal para alta velocidade.',
     image: blueImg,
@@ -184,7 +179,6 @@ export const boardsData: Board[] = [
     name: 'Speed Yellow Fish',
     type: 'Fish / Hybrid',
     suitableExperience: ['Intermediário', 'Avançado'],
-    suitableWeight: ['Leve (< 70kg)', 'Médio (70 - 85kg)'],
     description:
       'Fundo e deck em amarelo vibrante. Design de fish clássico para surf solto e divertido.',
     image: yellowFishImg,
@@ -201,7 +195,6 @@ export const boardsData: Board[] = [
     name: 'Speed Write Fish',
     type: 'Shortboard',
     suitableExperience: ['Intermediário', 'Avançado'],
-    suitableWeight: ['Leve (< 70kg)', 'Médio (70 - 85kg)'],
     description:
       'Speed Write Fish com design minimalista e clássico. Leveza e velocidade extrema para pranchas de performance.',
     image: SpeedWriteFishImg,
@@ -218,7 +211,6 @@ export const boardsData: Board[] = [
     name: 'Speed EVH Eruption',
     type: 'Shortboard',
     suitableExperience: ['Avançado'],
-    suitableWeight: ['Médio (70 - 85kg)'],
     description:
       'Design icônico inspirado na guitarra do Eddie Van Halen. Pura atitude e performance radical.',
     image: frankensteinImg,
@@ -235,7 +227,6 @@ export const boardsData: Board[] = [
     name: 'Speed Raibow Gradient',
     type: 'Shortboard',
     suitableExperience: ['Intermediário', 'Avançado'],
-    suitableWeight: ['Médio (70 - 85kg)', 'Pesado (> 85kg)'],
     description:
       'Desino vibrante com gradiente de arco-íris. Para surfistas que buscam estilo e performance.',
     image: SpeedRaibowGradienteImg,
@@ -252,7 +243,6 @@ export const boardsData: Board[] = [
     name: 'Speed Pink Swallow',
     type: 'Shortboard / Swallow Tail',
     suitableExperience: ['Intermediário', 'Avançado'],
-    suitableWeight: ['Leve (< 70kg)', 'Médio (70 - 85kg)', 'Pesado (> 85kg)'],
     description:
       'Prancha rosa com design de swallow tail. Ideal para surfistas que buscam estilo e performance em ondas médias a grandes.',
     image: pinkSwallowImg,
@@ -269,7 +259,6 @@ export const boardsData: Board[] = [
     name: 'Speed Pink and Blue Gradient',
     type: 'Shortboard',
     suitableExperience: ['Intermediário', 'Avançado'],
-    suitableWeight: ['Leve (< 70kg)', 'Médio (70 - 85kg)'],
     description: 'Prancha performance ideal para surfistas que buscam estilo e desempenho.',
     image: SpeedPinkBlueGradientImg,
     backImage: SpeedPinkBlueGradientBackImg,
@@ -285,7 +274,6 @@ export const boardsData: Board[] = [
     name: 'Speed Write Blue Border',
     type: 'Shortboard',
     suitableExperience: ['Intermediário', 'Avançado'],
-    suitableWeight: ['Leve (< 70kg)', 'Médio (70 - 85kg)'],
     description:
       'Prancha performance com bordas azuis vibrantes. Ideal para surfistas que buscam estilo e desempenho.',
     image: SpeedWriteBlueBorderImg,
@@ -297,7 +285,22 @@ export const boardsData: Board[] = [
       volume: '27L a 31L'
     }
   },
-
+  {
+    id: 'spd-014',
+    name: 'Speed Flash Fish',
+    type: 'Fish / Hybrid',
+    suitableExperience: ['Intermediário', 'Avançado'],
+    description:
+      'Fish versátil para surfistas intermediários e avançados, especialmente em ondas pequenas. A distribuição de volume favorece velocidade, manobras mais fáceis e conforto na remada.',
+    image: SpeedFlashFishImg,
+    backImage: SpeedFlashFishBackImg,
+    dimensions: {
+      length: '5\'0" a 6\'2"',
+      width: '19 1/2" a 22 1/2"',
+      thickness: '2" a 2 7/8"',
+      volume: '27L a 31L'
+    }
+  }
 ]
 export const testimonials = [
   {

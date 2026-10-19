@@ -1,4 +1,4 @@
-import { MessageCircle, Ruler, Scale, X, ZoomIn } from 'lucide-react'
+import { MessageCircle, Ruler, X, ZoomIn } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { useState } from 'react'
 import { Board } from '../data'
@@ -17,7 +17,7 @@ export function BoardCard({ board, index = 0 }: BoardCardProps) {
 
   const whatsappNumber = '5513996178279'
   const whatsappMessage = encodeURIComponent(
-    `Olá Sidney! Tenho interesse no modelo ${board.name}. Podemos conversar?`
+    `Olá Sidnei Oliveira! Tenho interesse no modelo ${board.name}. Podemos conversar?`
   )
 
   return (
@@ -112,16 +112,6 @@ export function BoardCard({ board, index = 0 }: BoardCardProps) {
                 <span className="text-xs text-gray-500 uppercase font-bold block">Nível</span>
                 <span className="text-sm text-gray-300 font-medium">
                   {board.suitableExperience.join(' • ')}
-                </span>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <Scale className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
-              <div>
-                <span className="text-xs text-gray-500 uppercase font-bold block">Peso</span>
-                <span className="text-sm text-gray-300 font-medium">
-                  {board.suitableWeight.join(' • ')}
                 </span>
               </div>
             </div>

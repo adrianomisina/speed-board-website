@@ -1,5 +1,5 @@
 import { Instagram, Mail, MapPin, Phone } from 'lucide-react'
-import logoImg from '../assets/images/spd_logo_yellow_1786107624785.jpg'
+import logoImg from '../assets/images/logo.png'
 
 export function Footer() {
   return (
@@ -11,12 +11,12 @@ export function Footer() {
               <img
                 src={logoImg}
                 alt="SPD Surfboards Logo"
-                className="h-12 w-auto object-contain rounded-md"
+                className="h-12 w-auto object-contain rounded-md bg-black"
               />
             </a>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               Pranchas de alta performance moldadas com paixão e mais de 20 anos de experiência por
-              Sidney Rasta.
+              Sidnei Oliveira.
             </p>
             <div className="flex gap-4">
               <a
@@ -33,7 +33,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a href="#about" className="text-gray-400 hover:text-emerald-400 transition-colors">
-                  História do Shaper
+                  História
                 </a>
               </li>
               <li>
@@ -41,7 +41,7 @@ export function Footer() {
                   href="#portfolio"
                   className="text-gray-400 hover:text-emerald-400 transition-colors"
                 >
-                  Portfólio
+                  Modelos
                 </a>
               </li>
               <li>
@@ -49,7 +49,7 @@ export function Footer() {
                   href="#finder"
                   className="text-gray-400 hover:text-emerald-400 transition-colors"
                 >
-                  Localizador de Pranchas
+                  Sua Nave
                 </a>
               </li>
               <li>

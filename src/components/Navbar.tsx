@@ -1,17 +1,17 @@
-import { motion } from 'motion/react';
-import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
-import logoImg from '../assets/images/spd_logo_yellow_1786107624785.jpg';
+import { Menu, X } from 'lucide-react'
+import { motion } from 'motion/react'
+import { useState } from 'react'
+import logoImg from '../assets/images/logo.png'
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   const links = [
     { name: 'História', href: '#about' },
-    { name: 'Pranchas', href: '#portfolio' },
-    { name: 'Localizador', href: '#finder' },
-    { name: 'Depoimentos', href: '#testimonials' },
-  ];
+    { name: 'Modelos', href: '#portfolio' },
+    { name: 'Sua Nave', href: '#finder' },
+    { name: 'Depoimentos', href: '#testimonials' }
+  ]
 
   return (
     <nav className="fixed w-full z-50 bg-black/90 backdrop-blur-sm border-b border-white/10">
@@ -19,13 +19,17 @@ export function Navbar() {
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
             <a href="#" className="flex flex-col items-center">
-              <img src={logoImg} alt="SPD Surfboards Logo" className="h-10 w-auto object-contain rounded-md" />
+              <img
+                src={logoImg}
+                alt="SPD Surfboards Logo"
+                className="h-10 w-auto object-contain rounded-md bg-black"
+              />
             </a>
           </div>
-          
+
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              {links.map((link) => (
+              {links.map(link => (
                 <a
                   key={link.name}
                   href={link.href}
@@ -34,15 +38,15 @@ export function Navbar() {
                   {link.name}
                 </a>
               ))}
-              <a 
-                href="#contact" 
+              <a
+                href="#contact"
                 className="bg-emerald-500 hover:bg-emerald-400 text-black px-5 py-2 rounded-full font-bold text-sm transition-colors shadow-[0_0_15px_rgba(16,185,129,0.4)]"
               >
                 Encomendar
               </a>
             </div>
           </div>
-          
+
           <div className="-mr-2 flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -56,13 +60,13 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           className="md:hidden bg-black border-b border-white/10"
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {links.map((link) => (
+            {links.map(link => (
               <a
                 key={link.name}
                 href={link.href}
@@ -83,5 +87,5 @@ export function Navbar() {
         </motion.div>
       )}
     </nav>
-  );
+  )
 }
