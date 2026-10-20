@@ -112,14 +112,6 @@ export function BoardCard({ board, index = 0 }: BoardCardProps) {
                   {board.finConfigurations.join(' • ')}
                 </span>
               </div>
-              <div className="col-span-2">
-                <span className="text-[10px] text-gray-500 uppercase font-bold block">
-                  Construção
-                </span>
-                <span className="text-sm text-gray-300 font-medium">
-                  {board.construction ?? 'A definir'}
-                </span>
-              </div>
             </div>
 
             <div className="flex items-start gap-3 pt-3 border-t border-zinc-800/50">
