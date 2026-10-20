@@ -7,36 +7,27 @@ import { BoardCard } from './BoardCard'
 type VolumeReference = {
   weight: number
   beginner: number
+  intermediateBeginner: number
   intermediate: number
+  advancedIntermediate: number
   advanced: number
 }
 
 const volumeReference: VolumeReference[] = [
-  { weight: 36, beginner: 17.49, intermediate: 16.37, advanced: 15.9 },
-  { weight: 38, beginner: 18.42, intermediate: 17.25, advanced: 16.75 },
-  { weight: 40, beginner: 18.7, intermediate: 17.5, advanced: 17 },
-  { weight: 43, beginner: 19.47, intermediate: 18.23, advanced: 17.7 },
-  { weight: 45, beginner: 19.8, intermediate: 18.54, advanced: 18 },
-  { weight: 49, beginner: 21.15, intermediate: 19.77, advanced: 19.2 },
-  { weight: 55, beginner: 23, intermediate: 21.52, advanced: 20.9 },
-  { weight: 59, beginner: 23.34, intermediate: 21.85, advanced: 21.22 },
-  { weight: 63, beginner: 24.25, intermediate: 22.71, advanced: 22.05 },
-  { weight: 66, beginner: 25.41, intermediate: 23.79, advanced: 23.1 },
-  { weight: 68, beginner: 26.19, intermediate: 24.52, advanced: 23.81 },
-  { weight: 70, beginner: 26.95, intermediate: 25.23, advanced: 24.5 },
-  { weight: 72, beginner: 27.72, intermediate: 25.95, advanced: 25.2 },
-  { weight: 74, beginner: 28.49, intermediate: 26.77, advanced: 25.9 },
-  { weight: 77, beginner: 29.64, intermediate: 27.75, advanced: 26.95 },
-  { weight: 79, beginner: 30.41, intermediate: 28.48, advanced: 27.65 },
-  { weight: 81, beginner: 31.18, intermediate: 29.2, advanced: 28.35 },
-  { weight: 83, beginner: 31.95, intermediate: 29.92, advanced: 29.05 },
-  { weight: 86, beginner: 33.11, intermediate: 31, advanced: 30.1 },
-  { weight: 88, beginner: 33.88, intermediate: 31.72, advanced: 30.8 },
-  { weight: 90, beginner: 34.65, intermediate: 32.44, advanced: 31.5 },
-  { weight: 95, beginner: 36.57, intermediate: 34.24, advanced: 33.25 },
-  { weight: 99, beginner: 39.25, intermediate: 36.71, advanced: 35.65 },
-  { weight: 104, beginner: 42.26, intermediate: 39.63, advanced: 38.48 },
-  { weight: 108, beginner: 45.16, intermediate: 42.27, advanced: 41.04 }
+  { weight: 45, advanced: 18.5, advancedIntermediate: 19.4, intermediate: 23.1, intermediateBeginner: 27.7, beginner: 33.2 },
+  { weight: 50, advanced: 19.5, advancedIntermediate: 20.5, intermediate: 24.4, intermediateBeginner: 29.3, beginner: 35.1 },
+  { weight: 55, advanced: 20.9, advancedIntermediate: 21.9, intermediate: 26.1, intermediateBeginner: 31.4, beginner: 37.6 },
+  { weight: 60, advanced: 21.6, advancedIntermediate: 22.7, intermediate: 27, intermediateBeginner: 32.4, beginner: 38.9 },
+  { weight: 65, advanced: 22.8, advancedIntermediate: 23.9, intermediate: 28.4, intermediateBeginner: 34.1, beginner: 41 },
+  { weight: 70, advanced: 24.5, advancedIntermediate: 25.7, intermediate: 30.6, intermediateBeginner: 36.8, beginner: 44.1 },
+  { weight: 75, advanced: 26.3, advancedIntermediate: 27.6, intermediate: 32.8, intermediateBeginner: 39.4, beginner: 47.3 },
+  { weight: 80, advanced: 28, advancedIntermediate: 29.4, intermediate: 35, intermediateBeginner: 42, beginner: 50.4 },
+  { weight: 85, advanced: 29.8, advancedIntermediate: 31.2, intermediate: 37.2, intermediateBeginner: 44.6, beginner: 53.6 },
+  { weight: 90, advanced: 31.5, advancedIntermediate: 33.1, intermediate: 39.4, intermediateBeginner: 47.3, beginner: 56.7 },
+  { weight: 95, advanced: 33.3, advancedIntermediate: 34.9, intermediate: 41.6, intermediateBeginner: 49.9, beginner: 59.9 },
+  { weight: 100, advanced: 36, advancedIntermediate: 37.8, intermediate: 45, intermediateBeginner: 54, beginner: 64.8 },
+  { weight: 105, advanced: 38.9, advancedIntermediate: 40.8, intermediate: 48.6, intermediateBeginner: 58.3, beginner: 69.9 },
+  { weight: 110, advanced: 41.8, advancedIntermediate: 43.9, intermediate: 52.3, intermediateBeginner: 62.7, beginner: 75.2 }
 ]
 
 function getRecommendedVolume(weight: number, experience: ExperienceLevel) {
@@ -46,15 +37,7 @@ function getRecommendedVolume(weight: number, experience: ExperienceLevel) {
     Avançado: 'advanced'
   } as const
   const key = volumeKey[experience]
-  const upperIndex = volumeReference.findIndex(row => row.weight >= weight)
-
-  if (upperIndex <= 0) return volumeReference[0][key]
-
-  const lower = volumeReference[upperIndex - 1]
-  const upper = volumeReference[upperIndex]
-  const progress = (weight - lower.weight) / (upper.weight - lower.weight)
-
-  return lower[key] + (upper[key] - lower[key]) * progress
+  return volumeReference.find(row => row.weight === weight)?.[key]
 }
 
 function getVolumeDistance(board: Board, volume: number) {
@@ -89,6 +72,7 @@ export function BoardFinder() {
     if (!experience || !weight) return
 
     const requestedVolume = getRecommendedVolume(Number(weight), experience)
+    if (requestedVolume === undefined) return
     const rankedBoards = boardsData
       .filter(board => board.suitableExperience.includes(experience))
       .map(board => ({ board, distance: getVolumeDistance(board, requestedVolume) }))
@@ -116,8 +100,8 @@ export function BoardFinder() {
           onSubmit={handleSearch}
           className="max-w-4xl mx-auto bg-zinc-900 rounded-2xl p-6 md:p-10 border border-zinc-800 shadow-2xl mb-16"
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
-            <div className="flex flex-col">
+          <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-3">
+            <div className="flex min-w-0 flex-col">
               <label
                 htmlFor="surfer-weight"
                 className="text-sm font-bold text-gray-300 mb-2 uppercase tracking-wide"
@@ -127,18 +111,19 @@ export function BoardFinder() {
               <input
                 id="surfer-weight"
                 type="number"
-                min="36"
-                max="108"
-                step="1"
+                min="45"
+                max="110"
+                step="5"
                 required
-                placeholder="Ex.: 70"
+                placeholder="Ex.: 70 kg"
                 className="bg-zinc-950 border border-zinc-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
                 value={weight}
                 onChange={e => setWeight(e.target.value)}
               />
+              <span className="mt-2 text-xs text-gray-500">Pesos de 45 a 110 kg, em intervalos de 5 kg.</span>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex min-w-0 flex-col">
               <label
                 htmlFor="surf-experience"
                 className="text-sm font-bold text-gray-300 mb-2 uppercase tracking-wide"
@@ -161,7 +146,7 @@ export function BoardFinder() {
 
             <button
               type="submit"
-              className="bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition-colors h-12.5"
+              className="mt-0 flex h-12.5 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-emerald-500 px-6 py-3 font-bold text-black transition-colors hover:bg-emerald-400 md:mt-7"
             >
               <Search size={20} />
               Buscar Modelos
@@ -192,75 +177,71 @@ export function BoardFinder() {
               role="dialog"
               aria-modal="true"
               aria-labelledby="volume-table-title"
-              className="w-full max-w-5xl max-h-[85svh] overflow-hidden rounded-xl border border-zinc-700 bg-zinc-950 shadow-2xl"
+              className="flex max-h-[85svh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 text-white shadow-2xl"
             >
               <div className="flex items-start justify-between gap-4 border-b border-zinc-800 p-5 sm:p-6">
                 <div>
-                  <h3 id="volume-table-title" className="text-xl font-bold text-white sm:text-2xl">
-                    Tabela de litragem recomendada
+                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-emerald-400">
+                    Guia de litragem
+                  </p>
+                  <h3 id="volume-table-title" className="text-xl font-bold sm:text-2xl">
+                    Volume recomendado por peso
                   </h3>
                   <p className="mt-1 text-sm text-gray-400">
-                    Referência de volume da prancha de acordo com seu peso e nível de surf.
+                    Referência em litros conforme o peso e o nível de surf.
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setIsVolumeTableOpen(false)}
                   aria-label="Fechar tabela de litragem"
-                  className="shrink-0 rounded-md p-2 text-gray-300 transition-colors hover:bg-zinc-800 hover:text-white"
+                  className="shrink-0 rounded-lg p-2 text-gray-400 transition-colors hover:bg-zinc-800 hover:text-white"
                 >
                   <X size={22} />
                 </button>
               </div>
-              <div className="max-h-[calc(85svh-112px)] overflow-auto">
-                <table className="w-full min-w-[560px] border-collapse text-center text-sm text-gray-200">
-                  <thead className="sticky top-0 bg-zinc-900 text-white">
-                    <tr>
-                      <th
-                        scope="col"
-                        className="border-b border-r border-zinc-700 px-3 py-3 font-bold"
-                      >
-                        Peso (kg)
-                      </th>
-                      <th
-                        scope="col"
-                        className="border-b border-r border-zinc-700 px-3 py-3 font-bold"
-                      >
-                        Iniciante (L)
-                      </th>
-                      <th
-                        scope="col"
-                        className="border-b border-r border-zinc-700 px-3 py-3 font-bold"
-                      >
-                        Intermediário (L)
-                      </th>
-                      <th scope="col" className="border-b border-zinc-700 px-3 py-3 font-bold">
-                        Avançado (L)
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {volumeReference.map(row => (
-                      <tr key={row.weight} className="odd:bg-zinc-950 even:bg-zinc-900/70">
-                        <th
-                          scope="row"
-                          className="border-b border-r border-zinc-800 px-3 py-2 font-semibold"
-                        >
-                          {row.weight}
-                        </th>
-                        <td className="border-b border-r border-zinc-800 px-3 py-2">
-                          {row.beginner.toFixed(2)}
-                        </td>
-                        <td className="border-b border-r border-zinc-800 px-3 py-2">
-                          {row.intermediate.toFixed(2)}
-                        </td>
-                        <td className="border-b border-zinc-800 px-3 py-2">
-                          {row.advanced.toFixed(2)}
-                        </td>
+
+              <div className="overflow-auto p-4 sm:p-6">
+                <div className="overflow-hidden rounded-xl border border-zinc-800">
+                  <table className="w-full min-w-[760px] border-collapse text-center text-sm text-gray-200">
+                    <thead className="sticky top-0 bg-zinc-900 text-xs uppercase tracking-wide text-gray-300">
+                      <tr>
+                        {[
+                          'Peso (kg)',
+                          'Avançado (L)',
+                          'Avançado / Intermediário (L)',
+                          'Intermediário (L)',
+                          'Intermediário / Iniciante (L)',
+                          'Iniciante (L)'
+                        ].map(heading => (
+                          <th key={heading} scope="col" className="border-b border-zinc-800 px-3 py-3">
+                            {heading}
+                          </th>
+                        ))}
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {volumeReference.map((row, index) => (
+                        <tr
+                          key={row.weight}
+                          className={index % 2 === 0 ? 'bg-zinc-950' : 'bg-zinc-900/60'}
+                        >
+                          <th scope="row" className="border-t border-zinc-800 px-3 py-2 font-semibold text-white">
+                            {row.weight}
+                          </th>
+                          <td className="border-t border-zinc-800 px-3 py-2">{row.advanced.toFixed(1)}</td>
+                          <td className="border-t border-zinc-800 px-3 py-2">{row.advancedIntermediate.toFixed(1)}</td>
+                          <td className="border-t border-zinc-800 px-3 py-2">{row.intermediate.toFixed(1)}</td>
+                          <td className="border-t border-zinc-800 px-3 py-2">{row.intermediateBeginner.toFixed(1)}</td>
+                          <td className="border-t border-zinc-800 px-3 py-2">{row.beginner.toFixed(1)}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <p className="mt-4 text-xs text-gray-500">
+                  Valores em litros. Deslize horizontalmente para ver todas as faixas de nível.
+                </p>
               </div>
             </motion.div>
           </motion.div>

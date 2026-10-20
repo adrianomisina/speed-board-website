@@ -49,11 +49,39 @@ export function Portfolio() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {visibleBoards.map((board, index) => (
-            <BoardCard key={board.id} board={board} index={index} />
-          ))}
-        </div>
+        {selectedCategory === null ? (
+          <div className="space-y-12">
+            {categories.map(category => {
+              const categoryBoards = boardsData.filter(board => board.category === category)
+              if (categoryBoards.length === 0) return null
+
+              return (
+                <section key={category} aria-labelledby={`portfolio-${category}`}>
+                  <div className="mb-6 flex items-center gap-4">
+                    <h4
+                      id={`portfolio-${category}`}
+                      className="shrink-0 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-sm font-bold uppercase tracking-wide text-emerald-400"
+                    >
+                      {category}
+                    </h4>
+                    <div className="h-px flex-1 bg-zinc-800" />
+                  </div>
+                  <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    {categoryBoards.map((board, index) => (
+                      <BoardCard key={board.id} board={board} index={index} />
+                    ))}
+                  </div>
+                </section>
+              )
+            })}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {visibleBoards.map((board, index) => (
+              <BoardCard key={board.id} board={board} index={index} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )
