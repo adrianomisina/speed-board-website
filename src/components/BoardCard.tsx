@@ -30,7 +30,7 @@ export function BoardCard({ board, index = 0 }: BoardCardProps) {
         className="group bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-emerald-500/50 transition-all hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] flex flex-col h-full"
       >
         <div
-          className="relative h-72 overflow-hidden bg-white cursor-pointer"
+          className="relative aspect-9/16 w-full overflow-hidden bg-white cursor-pointer"
           onClick={() => setIsModalOpen(true)}
         >
           {/* Pedestal background effect */}
@@ -64,12 +64,14 @@ export function BoardCard({ board, index = 0 }: BoardCardProps) {
             </div>
           )}
 
-          <img
-            src={displayedImage}
-            alt={`${board.name} — ${sideLabel}`}
-            className="absolute inset-4 z-20 h-[calc(100%-2rem)] w-[calc(100%-2rem)] object-contain object-center transition-transform duration-700 group-hover:scale-105"
-            style={board.imageStyle}
-          />
+          <div className="absolute inset-0 z-20">
+            <img
+              src={displayedImage}
+              alt={`${board.name} — ${sideLabel}`}
+              className="block h-full w-full object-cover object-center"
+              style={board.imageStyle}
+            />
+          </div>
 
           <div className="absolute bottom-4 left-4 z-30">
             <span className="inline-block px-3 py-1 bg-emerald-500 text-black text-xs font-bold rounded-full uppercase tracking-wider shadow-lg">
@@ -147,10 +149,12 @@ export function BoardCard({ board, index = 0 }: BoardCardProps) {
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
           >
             <button
+              type="button"
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-6 right-6 p-2 text-white/70 hover:text-white bg-black/50 hover:bg-black/80 rounded-full transition-colors"
+              aria-label="Fechar"
+              className="absolute top-4 right-4 z-50 flex h-11 w-11 items-center justify-center rounded-lg bg-emerald-500 text-black shadow-lg transition-colors hover:bg-emerald-400"
             >
-              <X className="w-8 h-8" />
+              <X className="h-6 w-6" />
             </button>
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}

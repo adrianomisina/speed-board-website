@@ -1,7 +1,7 @@
 import React from 'react'
 
 export type ExperienceLevel = 'Iniciante' | 'Intermediário' | 'Avançado'
-export type BoardCategory = 'Shortboard - Performance' | 'Evolution' | 'Fun' | 'Fish' | 'Longboards'
+export type BoardCategory = 'Shortboard - Performance' | 'Evolution' | 'Fish' | 'Longboards'
 export type FinConfiguration = 'Biquilha' | 'Triquilha' | 'Quadriquilha'
 export interface BoardDimensions {
   length: string
@@ -283,8 +283,8 @@ export const boardsData: Board[] = [
   {
     id: 'spd-012',
     name: 'Speed Pink and Blue Gradient',
-    type: 'Shortboard',
-    category: 'Fun',
+    type: 'Evolution, Shortboard',
+    category: 'Evolution',
     finConfigurations: ['Triquilha'],
     suitableExperience: ['Intermediário', 'Avançado'],
     description: 'Prancha performance ideal para surfistas que buscam estilo e desempenho.',
