@@ -93,10 +93,10 @@ export function Footer() {
                   <div>
                     <span className="block text-sm font-bold text-gray-400 uppercase">Email</span>
                     <a
-                      href="mailto:contato@spdsurfboards.com"
+                      href="mailto:speedney13@gmail.com"
                       className="text-white hover:text-emerald-400 transition-colors"
                     >
-                      contato@spdsurfboards.com
+                      speedney13@gmail.com
                     </a>
                   </div>
                 </li>

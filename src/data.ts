@@ -1,7 +1,7 @@
 import React from 'react'
 
 export type ExperienceLevel = 'Iniciante' | 'Intermediário' | 'Avançado'
-export type BoardCategory = 'Shortboard - Performance' | 'Evolution' | 'Fish' | 'Longboards'
+export type BoardCategory = 'Shortboard - Performance' | 'Evolution' | 'Funboards' | 'Fish' | 'Longboards'
 export type FinConfiguration = 'Biquilha' | 'Triquilha' | 'Quadriquilha'
 export interface BoardDimensions {
   length: string
@@ -80,6 +80,30 @@ import SpeedWriteBlueBorderBackImg from './assets/images/speed_write_blue_border
 //Speed Flash Fish
 import SpeedFlashFishImg from './assets/images/fish-flash-frente.png'
 import SpeedFlashFishBackImg from './assets/images/fish-flash-fundo.png'
+
+//Speed Fish White Black Half Carbon
+import SpeedFishWhiteBlackHalfCarbonImg from './assets/images/fish-white-black-half-carbon-frente.png'
+import SpeedFishWhiteBlackHalfCarbonBackImg from './assets/images/fish-white-black-half-carbon-fundo.png'
+
+//Speed Yellow Blue Fish
+import SpeedYellowBlueFishImg from './assets/images/fish-yellow-blue-frente.png'
+import SpeedYellowBlueFishBackImg from './assets/images/fish-yellow-blue-fundo.png'
+
+//Speed Storm Gradient
+import SpeedStormGradientImg from './assets/images/speed_storm_gradient_frente.png'
+import SpeedStormGradientBackImg from './assets/images/speed_storm_gradient_fundo.png'
+
+//Speed Thank Funboard
+import SpeedThankFunboardImg from './assets/images/speed_thank_funboard_frente.png'
+import SpeedThankFunboardBackImg from './assets/images/speed_thank_funboard_fundo.png'
+
+//Speed Mini Tank Yellow Funboard
+import SpeedMiniTankYellowFunboardImg from './assets/images/speed_mini_tank_yellow_fun_frente.png'
+import SpeedMiniTankYellowFunboardBackImg from './assets/images/speed_mini_tank_yellow_fun_fundo.png'
+
+//speed Mini Tank Sunburst Funboard
+import SpeedMiniTankSunburstFunboardImg from './assets/images/speed_mini_tank_sunburst_frente.png'
+import SpeedMiniTankSunburstFunboardBackImg from './assets/images/speed_mini_tank_sunburst_fundo.png'
 
 export const boardsData: Board[] = [
   {
@@ -331,6 +355,114 @@ export const boardsData: Board[] = [
       width: '19 1/2" a 22 1/2"',
       thickness: '2" a 2 7/8"',
       volume: '27L a 31L'
+    }
+  },
+  {
+    id: 'spd-015',
+    name: 'Speed Fish White Black Half Carbon',
+    type: 'Fish / Hybrid',
+    category: 'Fish',
+    finConfigurations: ['Biquilha', 'Triquilha'],
+    suitableExperience: ['Intermediário', 'Avançado'],
+    description:
+      'Fish versátil com design em branco, preto e fibra de carbono. Ideal para surfistas intermediários e avançados que buscam estilo e desempenho.',
+    image: SpeedFishWhiteBlackHalfCarbonImg,
+    backImage: SpeedFishWhiteBlackHalfCarbonBackImg,
+    dimensions: {
+      length: '5\'0" a 6\'2"',
+      width: '19 1/2" a 22 1/2"',
+      thickness: '2" a 2 7/8"',
+      volume: '27L a 31L'
+    }
+  },
+  {
+    id: 'spd-016',
+    name: 'Speed Yellow Blue Fish',
+    type: 'Fish / Hybrid',
+    category: 'Fish',
+    finConfigurations: ['Biquilha', 'Triquilha'],
+    suitableExperience: ['Intermediário', 'Avançado'],
+    description:
+      'Fish versátil com design em amarelo e azul. Ideal para surfistas intermediários e avançados que buscam estilo e desempenho.',
+    image: SpeedYellowBlueFishImg,
+    backImage: SpeedYellowBlueFishBackImg,
+    dimensions: {
+      length: '5\'0" a 6\'2"',
+      width: '19 1/2" a 22 1/2"',
+      thickness: '2" a 2 7/8"',
+      volume: '27L a 31L'
+    }
+  },
+  {
+    id: 'spd-017',
+    name: 'Speed Storm Gradient',
+    type: 'Shortboard',
+    category: 'Shortboard - Performance',
+    finConfigurations: ['Triquilha'],
+    suitableExperience: ['Intermediário', 'Avançado'],
+    description:
+      'Prancha performance com design em gradiente de tempestade. Ideal para surfistas que buscam estilo e desempenho.',
+    image: SpeedStormGradientImg,
+    backImage: SpeedStormGradientBackImg,
+    dimensions: {
+      length: '5\'9" a 6\'2"',
+      width: '18 3/4" a 19 3/8"',
+      thickness: '2 5/16" a 2 9/16"',
+      volume: '27L a 31L'
+    }
+  },
+  {
+    id: 'spd-018',
+    name: 'Speed Thank Funboard',
+    type: 'Funboard',
+    category: 'Funboards',
+    finConfigurations: ['Triquilha'],
+    suitableExperience: ['Iniciante', 'Intermediário', 'Avançado'],
+    description:
+      'Funboard versátil com design em gradiente de cores. Ideal para surfistas de todos os níveis que buscam estilo e desempenho.',
+    image: SpeedThankFunboardImg,
+    backImage: SpeedThankFunboardBackImg,
+    dimensions: {
+      length: '6\'8" a 7\'6"',
+      width: '21" a 22"',
+      thickness: '2 5/8" a 3"',
+      volume: '42L a 50L'
+    }
+  },
+  {
+    id: 'spd-019',
+    name: 'Speed Mini Tank Yellow Funboard',
+    type: 'Funboard',
+    category: 'Funboards',
+    finConfigurations: ['Triquilha'],
+    suitableExperience: ['Iniciante', 'Intermediário', 'Avançado'],
+    description:
+      'Funboard versátil com design em amarelo vibrante. Ideal para surfistas de todos os níveis que buscam estilo e desempenho.',
+    image: SpeedMiniTankYellowFunboardImg,
+    backImage: SpeedMiniTankYellowFunboardBackImg,
+    dimensions: {
+      length: '6\'8" a 7\'6"',
+      width: '21" a 22"',
+      thickness: '2 5/8" a 3"',
+      volume: '42L a 50L'
+    }
+  },
+  {
+    id: 'spd-020',
+    name: 'Speed Mini Tank Sunburst Funboard',
+    type: 'Funboard',
+    category: 'Funboards',
+    finConfigurations: ['Triquilha'],
+    suitableExperience: ['Iniciante', 'Intermediário', 'Avançado'],
+    description:
+      'Funboard versátil com design em gradiente de cores sunburst. Ideal para surfistas de todos os níveis que buscam estilo e desempenho.',
+    image: SpeedMiniTankSunburstFunboardImg,
+    backImage: SpeedMiniTankSunburstFunboardBackImg,
+    dimensions: {
+      length: '6\'8" a 7\'6"',
+      width: '21" a 22"',
+      thickness: '2 5/8" a 3"',
+      volume: '42L a 50L'
     }
   }
 ]

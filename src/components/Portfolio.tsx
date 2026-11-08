@@ -5,6 +5,7 @@ import { BoardCard } from './BoardCard'
 const categories: BoardCategory[] = [
   'Shortboard - Performance',
   'Evolution',
+  'Funboards',
   'Fish',
   'Longboards'
 ]
