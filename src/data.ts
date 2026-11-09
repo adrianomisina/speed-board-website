@@ -1,7 +1,12 @@
 import React from 'react'
 
 export type ExperienceLevel = 'Iniciante' | 'Intermediário' | 'Avançado'
-export type BoardCategory = 'Shortboard - Performance' | 'Evolution' | 'Funboards' | 'Fish' | 'Longboards'
+export type BoardCategory =
+  | 'Shortboard - Performance'
+  | 'Evolution'
+  | 'Funboards'
+  | 'Fish'
+  | 'Longboards'
 export type FinConfiguration = 'Biquilha' | 'Triquilha' | 'Quadriquilha'
 export interface BoardDimensions {
   length: string
@@ -93,9 +98,9 @@ import SpeedYellowBlueFishBackImg from './assets/images/fish-yellow-blue-fundo.p
 import SpeedStormGradientImg from './assets/images/speed_storm_gradient_frente.png'
 import SpeedStormGradientBackImg from './assets/images/speed_storm_gradient_fundo.png'
 
-//Speed Thank Funboard
-import SpeedThankFunboardImg from './assets/images/speed_thank_funboard_frente.png'
-import SpeedThankFunboardBackImg from './assets/images/speed_thank_funboard_fundo.png'
+//Speed Tank Funboard
+import SpeedTankFunboardImg from './assets/images/speed_thank_funboard_frente.png'
+import SpeedTankFunboardBackImg from './assets/images/speed_thank_funboard_fundo.png'
 
 //Speed Mini Tank Yellow Funboard
 import SpeedMiniTankYellowFunboardImg from './assets/images/speed_mini_tank_yellow_fun_frente.png'
@@ -413,15 +418,15 @@ export const boardsData: Board[] = [
   },
   {
     id: 'spd-018',
-    name: 'Speed Thank Funboard',
+    name: 'Speed Tank Funboard',
     type: 'Funboard',
     category: 'Funboards',
     finConfigurations: ['Triquilha'],
     suitableExperience: ['Iniciante', 'Intermediário', 'Avançado'],
     description:
       'Funboard versátil com design em gradiente de cores. Ideal para surfistas de todos os níveis que buscam estilo e desempenho.',
-    image: SpeedThankFunboardImg,
-    backImage: SpeedThankFunboardBackImg,
+    image: SpeedTankFunboardImg,
+    backImage: SpeedTankFunboardBackImg,
     dimensions: {
       length: '6\'8" a 7\'6"',
       width: '21" a 22"',

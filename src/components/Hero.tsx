@@ -33,8 +33,8 @@ export function Hero() {
             style={{ backgroundImage: `url(${heroImages[activeSlide]})` }}
           />
         </AnimatePresence>
-        <span className="absolute inset-0 bg-black/50"></span>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/10"></div>
+        <span className="absolute inset-0 bg-black/35"></span>
+        <div className="absolute inset-0 bg-linear-to-t from-black/55 via-black/5 to-black/5"></div>
       </div>
 
       <div className="container relative mx-auto px-4">
@@ -47,7 +47,7 @@ export function Hero() {
             >
               <h1 className="text-white font-black text-5xl md:text-7xl uppercase tracking-tight">
                 Moldadas para{' '}
-                <span className="text-emerald-400 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-500">
+                <span className="text-emerald-400 bg-clip-text bg-linear-to-r from-emerald-400 to-green-500">
                   a velocidade
                 </span>
               </h1>
